@@ -1,0 +1,30 @@
+[package]
+name = "gitorg"
+version = "0.1.0"
+edition = "2021"
+description = "A CLI tool for managing and monitoring multiple GitHub organizations"
+license = "MIT"
+repository = "https://github.com/davidliedle/gitorg"
+keywords = ["github", "cli", "organization", "devops"]
+categories = ["command-line-utilities", "development-tools"]
+
+[dependencies]
+clap = { version = "4.5", features = ["derive"] }
+octocrab = "0.49"
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.8"
+comfy-table = "7"
+owo-colors = "4"
+dirs = "6"
+chrono = { version = "0.4", features = ["serde"] }
+thiserror = "2"
+anyhow = "1"
+rpassword = "7"
+
+[dev-dependencies]
+assert_cmd = "2"
+predicates = "3"
+tempfile = "3"
+wiremock = "0.6"
