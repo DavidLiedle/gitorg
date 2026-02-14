@@ -7,7 +7,12 @@ pub async fn run(token: &Option<String>) -> Result<()> {
     let token = match token {
         Some(t) => t.clone(),
         None => {
-            eprintln!("Enter your GitHub personal access token:");
+            let url = "https://github.com/settings/tokens/new?description=gitorg&scopes=read:org,repo";
+            eprintln!("Opening GitHub token creation page in your browser...");
+            if open::that(url).is_err() {
+                eprintln!("Could not open browser. Visit: {url}");
+            }
+            eprintln!("\nPaste your token below:");
             rpassword::read_password()?
         }
     };
